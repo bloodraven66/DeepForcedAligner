@@ -12,7 +12,8 @@ class Audio:
                  win_length: int,
                  n_filters: int,
                  fmin: int,
-                 fmax: int):
+                 fmax: int,
+                 power):
         self.n_mels = n_mels
         self.sample_rate = sample_rate
         self.hop_length = hop_length
@@ -20,6 +21,7 @@ class Audio:
         self.n_filters = n_filters
         self.fmin = fmin
         self.fmax = fmax
+        self.power = power
     
     def load_wav(self, path):
         wav, _ = librosa.load(path, sr=self.sample_rate)
@@ -34,7 +36,8 @@ class Audio:
             hop_length=self.hop_length,
             win_length=self.win_length,
             fmin=self.fmin,
-            fmax=self.fmax)
+            fmax=self.fmax,
+            power=self.power)
         mel = mel.T
         return self.normalize(mel)
     
@@ -56,4 +59,5 @@ class Audio:
             win_length=config['win_length'],
             hop_length=config['hop_length'],
             fmin=config['fmin'],
-            fmax=config['fmax'])
+            fmax=config['fmax'],
+            power=config['power'])

@@ -31,6 +31,7 @@ class Preprocessor:
     def __call__(self, file_path: Path) -> Dict[str, Union[str, int]]:
         item_id = file_path.stem
         if self.paths.precomputed_mels:
+        
             mel = np.load(self.paths.precomputed_mels / f'{item_id}.npy')
             if not self.mel_dim_last:
                 mel = mel.T
@@ -64,17 +65,11 @@ if __name__ == '__main__':
     print(f'Config: {args.config}\n'
           f'Target data directory: {paths.data_dir}')
     
-    text_dict = read_metafile(paths.metadata_path)
+    text_dict, audio_files = read_metafile(paths.metadata_path, paths.dataset_dir, paths.actual_dur_path)
     symbols = set()
     for text in text_dict.values():
         symbols.update(set(text))
     symbols = sorted(list(symbols))
-
-    if paths.precomputed_mels:
-        audio_files = get_files(paths.precomputed_mels, extension='.npy')
-    else:
-        audio_files = get_files(paths.dataset_dir, extension='.wav')
-
     audio_files = [x for x in audio_files if x.stem in text_dict]
     tokenizer = Tokenizer(symbols)
     preprocessor = Preprocessor(audio=audio, tokenizer=tokenizer, paths=paths,
