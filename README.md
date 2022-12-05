@@ -1,5 +1,8 @@
 # DeepForcedAligner
 
+Paths modified to train on ICASSP LIMMITS23 dataset.
+
+
 With this tool you can create accurate text-audio alignments given a bunch of audio files and their transcription. The alignments can for example be used to train text-to-speech models such as 
 [FastSpeech](https://arxiv.org/abs/1905.09263?utm_source=feedburner&utm_medium=feed&utm_campaign=Feed%253A+arxiv%252FQSXk+%2528ExcitingAds%2521+cs+updates+on+arXiv.org%2529). In comparison to other forced alignment tools this repo has following advantages:
 
