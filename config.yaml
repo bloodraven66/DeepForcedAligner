@@ -1,7 +1,7 @@
 
 paths:
   dataset_dir: /data/Database/SPGC/baseline_data/     
-  metadata_path: Marathi_M              # path to dataset containing wavs     # path to LJSpeech-style metafile with format: id|text
+  metadata_path: Hindi_M              # path to dataset containing wavs     # path to LJSpeech-style metafile with format: id|text
   dur_path: /data/Database/SPGC/baseline_data/metadata/
    
 audio:
@@ -26,7 +26,7 @@ durations:
 
 training:
   learning_rate: 0.0001
-  batch_size: 32
-  epochs: 1000
+  batch_size: 60
+  epochs: 800
   plot_steps: 1000
   checkpoint_steps: 10_000

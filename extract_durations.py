@@ -40,9 +40,9 @@ class Extractor:
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser(description='Duration extraction for DeepForcedAligner.')
-    parser.add_argument('--config', '-c', default='config.yaml', type=str, help='Points to the config file.')
+    parser.add_argument('--config', '-c', default='config2.yaml', type=str, help='Points to the config file.')
     parser.add_argument('--model', '-m', default=None, type=str, help='Points to the a model file to restore.')
-    parser.add_argument('--target', '-t', default='output', type=str, help='Target path')
+    parser.add_argument('--target', '-t', default='outputs', type=str, help='Target path')
     parser.add_argument('--batch_size', '-b', default=8, type=int, help='Batch size for inference.')
     parser.add_argument('--num_workers', '-w', metavar='N', type=int, default=cpu_count() - 1,
                         help='The number of worker threads to use for preprocessing')
@@ -51,6 +51,7 @@ if __name__ == '__main__':
     config = read_config(args.config)
     paths = Paths.from_config(config['paths'])
     model_path = args.model if args.model else paths.checkpoint_dir / 'latest_model.pt'
+    args.target =  '_'.join([str(paths.data_dir), str(args.target)])
 
     print(f'Target dir: {args.target}')
     dur_target_dir, pred_target_dir = Path(args.target) / 'durations', Path(args.target) / 'predictions'
