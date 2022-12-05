@@ -1,6 +1,6 @@
 # DeepForcedAligner
 
-<b>Paths modified to train on ICASSP LIMMITS23 dataset.</b> It is trained on each speaker separetly, by changing "metadata_path" to 6 <language>_<gender> combinations, eg: Hindi_M, Telugu_F, etc. You may train on all 6 speakers, with a multilingual setup also.
+<b>Paths modified to train on ICASSP LIMMITS23 dataset.</b> It is trained on each speaker separetly, by changing "metadata_path" to 6 <language>_<gender> combinations, eg: Hindi_M, Telugu_F, etc. You may train on all 6 speakers, with a multilingual setup also. For any questions, contact challenge.syspin@iisc.ac.in
   
 
 --- 
