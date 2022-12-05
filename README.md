@@ -1,6 +1,6 @@
 # DeepForcedAligner
 
-Paths modified to train on ICASSP LIMMITS23 dataset.
+<b>Paths modified to train on ICASSP LIMMITS23 dataset.</b>
 
 
 With this tool you can create accurate text-audio alignments given a bunch of audio files and their transcription. The alignments can for example be used to train text-to-speech models such as 
